@@ -63,13 +63,13 @@
 ### コマンド
 
 ```bash
-npm run dev        # Vite dev サーバー起動（HMR 有効）
-npm run build      # 完全ビルド: type-check → test → build-only
-npm run test       # Vitest（シングルラン）
-npm run test:watch # ウォッチモード
-npm run type-check # vue-tsc
-npm run lint       # ESLint（自動修正）
-npm run format     # Prettier
+pnpm dev        # Vite dev サーバー起動（HMR 有効）
+pnpm build      # 完全ビルド: type-check → test → build-only
+pnpm test       # Vitest（シングルラン）
+pnpm test:watch # ウォッチモード
+pnpm typecheck # vue-tsc
+pnpm lint       # ESLint（自動修正）
+pnpm format     # Prettier
 ```
 
 ### テスト
@@ -84,10 +84,10 @@ npm run format     # Prettier
 
 ### デバッグ
 
-- **Dev サーバー**: `npm run dev` → ブラウザで開く、ファイル変更時 HMR
+- **Dev サーバー**: `pnpm dev` → ブラウザで開く、ファイル変更時 HMR
 - **コンソール**: localStorage（`localStorage.getItem(key)`）でお気に入り状態を確認
 - **Vue DevTools**: コンポーネント階層を検査、`refs`、`computed` 値を確認
-- **型エラー**: プッシュ前に `npm run type-check` を実行
+- **型エラー**: プッシュ前に `pnpm typecheck` を実行
 
 ## 共通パターンと規約
 
