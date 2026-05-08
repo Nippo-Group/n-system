@@ -131,19 +131,5 @@ const startObserver = () => {
   })
 }
 
-// すべてのコンポーネントを事前にロードして定義（404エラーを防ぐため）
-const preloadAllComponents = async () => {
-  await Promise.all(
-    Array.from(componentRegistry.entries()).map(async ([tagName, loader]) => {
-      if (!customElements.get(tagName)) {
-        const module = await loader()
-        customElements.define(tagName, defineCustomElement(module.default))
-      }
-    }),
-  )
-}
-
-// 初期化: すべてのコンポーネントを事前ロード後、ドキュメントをアップグレードし、監視を開始
-void preloadAllComponents()
-  .then(() => upgradeRoot(document))
-  .then(startObserver)
+// 初期化: 初期DOMに存在するタグだけを登録し、監視を開始
+void upgradeRoot(document).then(startObserver)

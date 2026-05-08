@@ -9,6 +9,8 @@ import { defineConfig } from 'vite'
 // 主な目的: Web Componentsライブラリ(n-system)のビルドと開発環境の最適化
 
 export default defineConfig({
+  // 配布先がサブディレクトリ配下でも 404 になりにくいように、分割チャンクを相対パス参照にする
+  base: './',
   // プラグイン設定: VueとTailwind CSSの統合
   plugins: [
     vue({
@@ -35,6 +37,9 @@ export default defineConfig({
 
   // ビルド設定: 出力ファイルの構成
   build: {
+    // Vite の preload ヘルパーは base パス次第で絶対パス化しやすく、
+    // 配布先がサブパスの場合に 404 になりやすいので無効化する
+    modulePreload: false,
     // CSSを分割せず、単一のファイルにまとめる
     cssCodeSplit: false,
     rollupOptions: {
