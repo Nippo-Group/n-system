@@ -21,10 +21,10 @@ noscript {
     @apply text-blue-600;
   }
   input {
-    @apply rounded border-2 px-2 py-1 text-lg;
+    @apply rounded border-2 border-slate-200 px-2 py-1 text-lg;
   }
   textarea {
-    @apply rounded border-2 px-2 py-1 text-lg;
+    @apply rounded border-2 border-slate-200 px-2 py-1 text-lg;
   }
   table {
     @apply table-auto;

@@ -29,6 +29,22 @@
       </n-card>
 
       <n-card>
+        <n-title>フォーム</n-title>
+        <n-input-wrapper title="テキスト入力" required>
+          <input type="text" name="テキスト入力" placeholder="入力例" required />
+        </n-input-wrapper>
+
+        <n-input-wrapper title="テキストエリア">
+          <textarea name="テキストエリア" cols="60" rows="4"></textarea>
+        </n-input-wrapper>
+
+        <n-input-wrapper title="ラジオボタン">
+          <label class="flex gap-1"><input type="radio" name="radio" value="one" />One</label>
+          <label class="flex gap-1"><input type="radio" name="radio" value="two" />Two</label>
+        </n-input-wrapper>
+      </n-card>
+
+      <n-card>
         <n-title>折りたたみ</n-title>
         <n-collapsible>
           <n-container-flex>
