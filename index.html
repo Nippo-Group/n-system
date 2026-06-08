@@ -29,6 +29,43 @@
       </n-card>
 
       <n-card>
+        <n-title>ドロップダウン</n-title>
+        <n-disclosure>
+          <n-title slot="title" lv="h4">スロットのタイトル</n-title>
+          <ol>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+          </ol>
+        </n-disclosure>
+
+        <n-disclosure title="ドロップダウン">
+          <ol>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+          </ol>
+        </n-disclosure>
+
+        <n-disclosure title="デフォルトオープン" default-open>
+          <ol>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+            <li>あいうえおかきくけこさしすせそたちつてと</li>
+          </ol>
+        </n-disclosure>
+      </n-card>
+
+      <n-card>
         <n-title>フォーム</n-title>
         <n-input-wrapper title="テキスト入力" required>
           <input type="text" name="テキスト入力" placeholder="入力例" required />
@@ -255,43 +292,6 @@
       </n-card>
 
       <n-card>
-        <n-title>ドロップダウン</n-title>
-        <n-disclosure>
-          <n-title slot="title" lv="h4">スロットのタイトル</n-title>
-          <ol>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-          </ol>
-        </n-disclosure>
-
-        <n-disclosure title="ドロップダウン">
-          <ol>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-          </ol>
-        </n-disclosure>
-
-        <n-disclosure title="デフォルトオープン" default-open>
-          <ol>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-            <li>あいうえおかきくけこさしすせそたちつてと</li>
-          </ol>
-        </n-disclosure>
-      </n-card>
-
-      <n-card>
         <n-title>コンテナー</n-title>
         <n-container-flex justify="center" justify-md="end">
           <span>要素</span>
@@ -315,26 +315,6 @@
         <n-title>リスト</n-title>
 
         <n-list>
-          <n-list-item-app
-            id="様式①-1"
-            data="application-01-1.xlsx"
-            data-type="Excel"
-            data-size="40KB"
-            show-header
-          >
-            <p>搬入・搬出車両カード申込書（作業予定計画書）</p>
-          </n-list-item-app>
-          <n-list-item-app
-            id="様式①-2"
-            data="application-01-2.xlsx"
-            data-type="Excel"
-            data-size="39KB"
-          >
-            <p>電気使用工事申込書（電灯・動力）</p>
-          </n-list-item-app>
-        </n-list>
-
-        <n-list>
           <n-list-item-3col
             header="2024NEW環境展"
             item1="605社"
@@ -347,48 +327,6 @@
           ></n-list-item-3col>
           <n-list-item-3col header="合計" item1="714社" item2="2,065小間"></n-list-item-3col>
         </n-list>
-        <n-container-2col>
-          <n-list>
-            <n-list-item-komazu
-              header="東1～3ホール・屋外実演会場"
-              update="3月12日"
-              with-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123-pit.pdf"
-              without-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123.pdf"
-            ></n-list-item-komazu>
-            <n-list-item-komazu
-              header="東1ホール・屋外実演会場"
-              update="3月12日"
-              with-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123-pit.pdf"
-              without-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123.pdf"
-            ></n-list-item-komazu>
-            <n-list-item-komazu
-              header="東2ホール・屋外実演会場"
-              update="3月12日"
-              with-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123-pit.pdf"
-              without-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123.pdf"
-            ></n-list-item-komazu>
-          </n-list>
-          <n-list>
-            <n-list-item-komazu
-              header="東1～3ホール・屋外実演会場"
-              update="3月12日"
-              with-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123-pit.pdf"
-              without-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123.pdf"
-            ></n-list-item-komazu>
-            <n-list-item-komazu
-              header="東1ホール・屋外実演会場"
-              update="3月12日"
-              with-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123-pit.pdf"
-              without-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123.pdf"
-            ></n-list-item-komazu>
-            <n-list-item-komazu
-              header="東2ホール・屋外実演会場"
-              update="3月12日"
-              with-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123-pit.pdf"
-              without-pit="https://www.n-expo.jp/past/n-expo2024/documents/for-exhibitors/komazumen-hall123.pdf"
-            ></n-list-item-komazu>
-          </n-list>
-        </n-container-2col>
       </n-card>
 
       <n-card variant="outlined" color="blue">

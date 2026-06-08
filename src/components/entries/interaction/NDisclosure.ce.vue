@@ -17,7 +17,9 @@ withDefaults(
 
 <template>
   <Disclosure as="div" class="border-b" :default-open="defaultOpen" v-slot="{ open }">
-    <DisclosureButton class="flex w-full items-center justify-between p-2 text-start">
+    <DisclosureButton
+      class="flex w-full items-center justify-between p-2 text-start hover:bg-gray-100 rounded-md"
+    >
       <slot name="title">
         <span>{{ title }}</span>
       </slot>
