@@ -1,6 +1,6 @@
 {
   "name": "n-system",
-  "version": "3.5.2",
+  "version": "3.5.3",
   "private": true,
   "type": "module",
   "scripts": {
@@ -19,6 +19,8 @@
     "dompurify": "^3.4.1",
     "fuse.js": "^7.3.0",
     "marked": "^18.0.0",
+    "photoswipe": "^5.4.4",
+    "swiper": "^12.2.0",
     "typescript": "^6.0.2",
     "vue": "^3.5.32"
   },

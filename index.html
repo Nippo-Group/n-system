@@ -29,6 +29,11 @@
       </n-card>
 
       <n-card>
+        <n-title>スライダー</n-title>
+        <n-slider id="hero-slider" slides-per-view="4" space-between="16"></n-slider>
+      </n-card>
+
+      <n-card>
         <n-title>ドロップダウン</n-title>
         <n-disclosure>
           <n-title slot="title" lv="h4">スロットのタイトル</n-title>
@@ -538,5 +543,23 @@
       </n-breakpoint-switcher>
     </n-app>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      const items = [
+        { src: '/images/photos/2026-01.jpg', alt: '画像1', caption: 'キャプション1' },
+        { src: '/images/photos/2026-02.jpg', alt: '画像2' },
+        { src: '/images/photos/2026-03.jpg', alt: '画像3' },
+        { src: '/images/photos/2026-04.jpg', alt: '画像4' },
+        { src: '/images/photos/2026-05.jpg', alt: '画像5' },
+        { src: '/images/photos/2026-06.jpg', alt: '画像6' },
+        { src: '/images/photos/2026-07.jpg', alt: '画像7' },
+        { src: '/images/photos/2026-08.jpg', alt: '画像8' },
+        { src: '/images/photos/2026-09.jpg', alt: '画像9' },
+      ]
+
+      const slider = document.getElementById('hero-slider')
+      if (slider) {
+        slider.items = items
+      }
+    </script>
   </body>
 </html>
