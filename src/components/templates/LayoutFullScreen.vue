@@ -31,11 +31,11 @@ const toolBarNav = computed(() => {
     class="fixed left-0 top-0 z-40 h-screen w-96 max-w-[90%] -translate-x-96 transition duration-200"
     :class="{ 'translate-x-0': drawer }"
   ></GlobalHeader>
-  <div :inert="drawer" class="flex h-screen w-full flex-col overflow-hidden bg-slate-200">
+  <div :inert="drawer" class="flex h-svh w-full flex-col bg-slate-200">
     <ToolBar
       :title="siteTitle ? siteTitle.join(' ') : undefined"
       :navigation="toolBarNav"
-      class="flex-none"
+      class="sticky top-0 z-20"
     >
       <NImage
         v-if="logoImage"
