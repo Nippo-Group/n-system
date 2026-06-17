@@ -9,6 +9,7 @@ import ToolBar from '@/components/ui/ToolBar.vue'
 import ToolFooter from '@/components/ui/ToolFooter.vue'
 import { useConfig } from '@/composables/useConfig'
 import { useDrawer } from '@/composables/useDrawer'
+import { useScroll } from '@/composables/useScroll'
 
 const props = withDefaults(
   defineProps<{
@@ -24,6 +25,23 @@ const { drawer, operateDrawer, dismissDrawer } = useDrawer()
 
 const toolBarNav = computed(() => {
   return navigation.value?.filter((nav) => nav.id !== 'others')
+})
+
+// ヘッドツールの表示制御
+const { scrollY, scrollDirection } = useScroll()
+
+const toolbarStateStyles = {
+  visible: 'translate-y-0',
+  hidden: '-translate-y-full',
+}
+const toolbarState = computed(() => {
+  if (scrollY.value < 200) {
+    return 'visible'
+  } else if (scrollDirection.value === 'down') {
+    return 'hidden'
+  } else {
+    return 'visible'
+  }
 })
 </script>
 
@@ -42,7 +60,8 @@ const toolBarNav = computed(() => {
     <ToolBar
       :title="siteTitle ? siteTitle.join(' ') : undefined"
       :navigation="toolBarNav"
-      class="sticky top-0 z-20"
+      class="sticky top-0 z-20 duration-300"
+      :class="toolbarStateStyles[toolbarState]"
     >
       <NImage
         v-if="logoImage"
@@ -52,6 +71,11 @@ const toolBarNav = computed(() => {
         :alt="logoImage.alt"
       ></NImage>
     </ToolBar>
+    <!--
+      メイン
+      - `grow`: コンテンツに応じて伸びる
+      - `relative`: 子要素が高さを取得したい場合に子要素に`absolute`を設定することで取得可能になる
+    -->
     <main class="grow relative">
       <slot />
     </main>
