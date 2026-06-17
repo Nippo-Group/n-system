@@ -19,7 +19,7 @@
       "id": "sample",
       "name": "サンプル",
       "type": "group",
-      "children": ["pdf-viewer", "exhibitors", "nexpo", "pdf"]
+      "children": ["pdf-viewer", "exhibitors", "little", "nexpo", "pdf"]
     },
     {
       "id": "language",
@@ -57,6 +57,12 @@
       "id": "exhibitors",
       "name": "出展社一覧",
       "path": "@/pages/exhibitors.html",
+      "type": "internal"
+    },
+    {
+      "id": "little",
+      "name": "コンテンツが少ないページ",
+      "path": "@/pages/little.html",
       "type": "internal"
     },
     {

@@ -29,7 +29,7 @@ const languageButtonClass = cn(variantConceptMap['flat']('info'), 'border hover:
 </script>
 
 <template>
-  <div class="bg-white/75 px-4 pb-2 pt-4">
+  <div class="bg-white p-2 md:p-4 shadow-md border-t-4 border-primary">
     <div class="m-auto flex max-w-6xl justify-center align-bottom lg:justify-normal">
       <div class="flex-none">
         <component
