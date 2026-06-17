@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <LayoutBase :jsonPath>
     <div class="flex justify-center">
-      <div class="flex w-full max-w-5xl flex-col gap-12 py-6">
+      <div class="flex w-full max-w-5xl flex-col gap-12 py-6 px-2 lg:px-0">
         <slot />
       </div>
     </div>

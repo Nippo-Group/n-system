@@ -76,7 +76,7 @@ const toolbarState = computed(() => {
       - `grow`: コンテンツに応じて伸びる
       - `relative`: 子要素が高さを取得したい場合に子要素に`absolute`を設定することで取得可能になる
     -->
-    <main class="grow relative">
+    <main class="grow relative overflow-hidden">
       <slot />
     </main>
     <ToolFooter v-if="footer" :navigation :copyright> </ToolFooter>
