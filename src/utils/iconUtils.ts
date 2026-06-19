@@ -1,4 +1,5 @@
 import IconArrowDown from '@/components/icons/IconArrowDown.vue'
+import IconArrowLeft from '@/components/icons/IconArrowLeft.vue'
 import IconArrowRight from '@/components/icons/IconArrowRight.vue'
 import IconArrowUp from '@/components/icons/IconArrowUp.vue'
 import IconBookmark from '@/components/icons/IconBookmark.vue'
@@ -18,7 +19,9 @@ import IconInfo from '@/components/icons/IconInfo.vue'
 import IconMail from '@/components/icons/IconMail.vue'
 import IconMenu from '@/components/icons/IconMenu.vue'
 import IconOpenInNew from '@/components/icons/IconOpenInNew.vue'
+import IconPause from '@/components/icons/IconPause.vue'
 import IconPdf from '@/components/icons/IconPdf.vue'
+import IconPlay from '@/components/icons/IconPlay.vue'
 import IconProgressActivity from '@/components/icons/IconProgressActivity.vue'
 import IconQuestion from '@/components/icons/IconQuestion.vue'
 import IconSearch from '@/components/icons/IconSearch.vue'
@@ -28,6 +31,7 @@ import IconWarning from '@/components/icons/IconWarning.vue'
 
 export const iconMap = {
   'arrow-down': IconArrowDown,
+  'arrow-left': IconArrowLeft,
   'arrow-right': IconArrowRight,
   'arrow-up': IconArrowUp,
   bookmark: IconBookmark,
@@ -47,7 +51,9 @@ export const iconMap = {
   mail: IconMail,
   menu: IconMenu,
   'open-in-new': IconOpenInNew,
+  pause: IconPause,
   pdf: IconPdf,
+  play: IconPlay,
   'progress-activity': IconProgressActivity,
   question: IconQuestion,
   search: IconSearch,

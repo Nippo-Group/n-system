@@ -28,10 +28,6 @@ export const defaultSwiperOptions: Omit<
 > = {
   modules: [Navigation, Pagination, Autoplay, EffectFade, Scrollbar, A11y],
   loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
   pagination: {
     clickable: true,
   },
