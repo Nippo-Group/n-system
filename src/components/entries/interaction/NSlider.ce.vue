@@ -14,11 +14,13 @@ export type NSliderItem = {
 const props = withDefaults(
   defineProps<{
     items: NSliderItem[]
+    autoplay?: boolean
     slidesPerView?: number
     spaceBetween?: number
     centeredSlides?: boolean
   }>(),
   {
+    autoplay: false,
     slidesPerView: 3,
     spaceBetween: 8,
     centeredSlides: false,
@@ -100,10 +102,14 @@ const btnAutoplay =
       <Swiper
         :id="uid"
         v-bind="defaultSwiperOptions"
-        :autoplay="{
-          delay: 3000,
-          disableOnInteraction: false,
-        }"
+        :autoplay="
+          props.autoplay
+            ? {
+                delay: 3000,
+                disableOnInteraction: false,
+              }
+            : false
+        "
         :breakpoints="swiperBreakpoints"
         :centeredSlides="props.centeredSlides"
         :navigation="false"
@@ -129,7 +135,7 @@ const btnAutoplay =
     <!-- スライド位置をスクリーンリーダーに通知 -->
     <div class="sr-only" aria-live="polite">{{ currentIndex + 1 }} of {{ totalSlides }}</div>
 
-    <div class="flex justify-center items-center gap-1">
+    <div v-if="props.autoplay" class="flex justify-center items-center gap-1">
       <!-- 停止ボタン -->
       <button
         v-if="isAutoplaying"
