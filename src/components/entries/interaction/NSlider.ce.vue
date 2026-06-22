@@ -68,8 +68,6 @@ const onSwiper = (swiper: SwiperClass) => {
 // ナビゲーション（カスタム）
 const goPrev = () => swiperInstance.value?.slidePrev()
 const goNext = () => swiperInstance.value?.slideNext()
-const btnNavigation =
-  'bg-white hover:bg-gray-200 p-1 rounded-full border border-gray-200 text-primary shadow-md cursor-pointer'
 
 // オートプレイ
 const autoplayStart = () => {
@@ -80,8 +78,6 @@ const autoplayStop = () => {
   swiperInstance.value?.autoplay.stop()
   isAutoplaying.value = false
 }
-const btnAutoplay =
-  'bg-white hover:bg-gray-200 rounded-full text-primary cursor-pointer p-1 border border-transparent'
 </script>
 
 <template>
@@ -90,7 +86,7 @@ const btnAutoplay =
       <!-- カスタムの戻るボタン -->
       <button
         type="button"
-        :class="[btnNavigation, 'focus:outline-none focus:ring-2 focus:ring-primary']"
+        class="btn-nav"
         aria-label="Previous"
         :aria-controls="uid"
         @click="goPrev"
@@ -121,13 +117,7 @@ const btnAutoplay =
       </Swiper>
 
       <!-- カスタムの進ボタン -->
-      <button
-        type="button"
-        :class="[btnNavigation, 'focus:outline-none focus:ring-2 focus:ring-primary']"
-        aria-label="Next"
-        :aria-controls="uid"
-        @click="goNext"
-      >
+      <button type="button" class="btn-nav" aria-label="Next" :aria-controls="uid" @click="goNext">
         <NIcon name="arrow-right"></NIcon>
       </button>
     </div>
@@ -140,7 +130,7 @@ const btnAutoplay =
       <button
         v-if="isAutoplaying"
         type="button"
-        :class="[btnAutoplay, 'focus:outline-none focus:ring-2 focus:ring-primary']"
+        class="btn-autoplay"
         aria-label="Pause autoplay"
         :aria-pressed="!isAutoplaying"
         @click="autoplayStop"
@@ -152,7 +142,7 @@ const btnAutoplay =
       <button
         v-else
         type="button"
-        :class="[btnAutoplay, 'focus:outline-none focus:ring-2 focus:ring-primary']"
+        class="btn-autoplay"
         aria-label="Start autoplay"
         :aria-pressed="isAutoplaying"
         @click="autoplayStart"
@@ -169,4 +159,13 @@ const btnAutoplay =
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
 @import 'swiper/css/scrollbar';
+
+@layer components {
+  .btn-nav {
+    @apply bg-white hover:bg-gray-200 p-1 rounded-full border border-gray-200 text-primary shadow-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+  .btn-autoplay {
+    @apply rounded-full text-primary hover:text-info cursor-pointer focus:outline-none focus:ring focus:ring-primary;
+  }
+}
 </style>
