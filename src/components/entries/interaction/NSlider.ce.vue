@@ -140,7 +140,9 @@ const dismissImage = () => {
     </div>
 
     <!-- スライド位置をスクリーンリーダーに通知 -->
-    <div class="sr-only" aria-live="polite">{{ currentIndex + 1 }} of {{ totalSlides }}</div>
+    <div class="sr-only" role="status" aria-live="polite" aria-atomic="true">
+      {{ currentIndex + 1 }} of {{ totalSlides }}
+    </div>
 
     <div v-if="props.autoplay" class="flex justify-center items-center gap-1">
       <!-- 停止ボタン -->
@@ -149,7 +151,6 @@ const dismissImage = () => {
         type="button"
         class="btn-autoplay"
         aria-label="Pause autoplay"
-        :aria-pressed="!isAutoplaying"
         @click="autoplayStop"
       >
         <NIcon name="pause" size="sm"></NIcon>
@@ -161,13 +162,12 @@ const dismissImage = () => {
         type="button"
         class="btn-autoplay"
         aria-label="Start autoplay"
-        :aria-pressed="isAutoplaying"
         @click="autoplayStart"
       >
         <NIcon name="play" size="sm"></NIcon>
       </button>
     </div>
-    <ModalWarpper :visible :close-action="dismissImage">
+    <ModalWarpper :visible="visible" :close-action="dismissImage">
       <NContainer1col v-if="selectedIndex !== undefined" aline="center">
         <img :src="props.items[selectedIndex].src" :alt="props.items[selectedIndex].alt" />
         <p class="bg-gray-800 text-white px-1">{{ props.items[selectedIndex].alt }}</p>
