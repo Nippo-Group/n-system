@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
+import NContainer1col from '@/components/entries/layouts/NContainer1col.ce.vue'
 import NIcon from '@/components/entries/parts/NIcon.ce.vue'
+import ModalWarpper from '@/components/ui/ModalWarpper.vue'
+import { useModal } from '@/composables/useModal'
 import { Swiper, SwiperSlide, defaultSwiperOptions } from '@/lib/swiper'
 
 import type { Swiper as SwiperClass } from 'swiper'
@@ -31,15 +34,12 @@ const props = withDefaults(
 const swiperBreakpoints = computed(() => ({
   0: {
     slidesPerView: 1,
-    spaceBetween: 0,
   },
   640: {
     slidesPerView: Math.min(2, props.slidesPerView),
-    spaceBetween: 8,
   },
   1024: {
     slidesPerView: props.slidesPerView,
-    spaceBetween: 8,
   },
 }))
 
@@ -54,14 +54,9 @@ const isAutoplaying = ref(false)
 const onSwiper = (swiper: SwiperClass) => {
   swiperInstance.value = swiper
   currentIndex.value = swiper.realIndex ?? swiper.activeIndex ?? 0
-  // 更新イベントを登録
-  try {
-    swiper.on('slideChange', () => {
-      currentIndex.value = swiper.realIndex ?? swiper.activeIndex ?? 0
-    })
-  } catch (e) {
-    console.error(e)
-  }
+  swiper.on('slideChange', () => {
+    currentIndex.value = swiper.realIndex ?? swiper.activeIndex ?? 0
+  })
   isAutoplaying.value = !!swiper.autoplay?.running
 }
 
@@ -77,6 +72,21 @@ const autoplayStart = () => {
 const autoplayStop = () => {
   swiperInstance.value?.autoplay.stop()
   isAutoplaying.value = false
+}
+
+// 画像の拡大表示
+// - モーダルの状態管理
+const { visible, show, dismiss } = useModal()
+
+// - クリックされた画像を管理
+const selectedIndex = ref<number | undefined>(undefined)
+const showImage = (index: number) => {
+  selectedIndex.value = index
+  show()
+}
+const dismissImage = () => {
+  selectedIndex.value = undefined
+  dismiss()
 }
 </script>
 
@@ -107,12 +117,19 @@ const autoplayStop = () => {
             : false
         "
         :breakpoints="swiperBreakpoints"
+        :spaceBetween="props.spaceBetween"
         :centeredSlides="props.centeredSlides"
         :navigation="false"
         @swiper="onSwiper"
       >
-        <SwiperSlide v-for="item in props.items" :key="item.src">
-          <img :src="item.src" :alt="item.alt" class="rounded aspect-3/2 object-cover" />
+        <SwiperSlide v-for="(item, index) in props.items" :key="item.src">
+          <button
+            type="button"
+            class="rounded overflow-hidden flex cursor-pointer hover:opacity-80 focus:ring"
+            @click="showImage(index)"
+          >
+            <img :src="item.src" :alt="item.alt" class="aspect-3/2 object-cover" />
+          </button>
         </SwiperSlide>
       </Swiper>
 
@@ -150,6 +167,12 @@ const autoplayStop = () => {
         <NIcon name="play" size="sm"></NIcon>
       </button>
     </div>
+    <ModalWarpper :visible :close-action="dismissImage">
+      <NContainer1col v-if="selectedIndex !== undefined" aline="center">
+        <img :src="props.items[selectedIndex].src" :alt="props.items[selectedIndex].alt" />
+        <p class="bg-gray-800 text-white px-1">{{ props.items[selectedIndex].alt }}</p>
+      </NContainer1col>
+    </ModalWarpper>
   </div>
 </template>
 

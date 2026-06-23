@@ -46,7 +46,7 @@ const toolbarState = computed(() => {
 </script>
 
 <template>
-  <OverlayBase v-show="drawer" class="z-30" @click="dismissDrawer()"></OverlayBase>
+  <OverlayBase v-show="drawer" @click="dismissDrawer()"></OverlayBase>
   <HeaderTool :active="drawer" class="z-50" @click="operateDrawer()"></HeaderTool>
   <GlobalHeader
     v-if="siteTitle && navigation"
